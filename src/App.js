@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Employee from './Employee';
+
+const employees = [
+  {
+    name: 'John Doe',
+    jobTitle: 'Software Engineer',
+    email: 'john@example.com',
+  },
+  {
+    name: 'Jane Smith',
+    jobTitle: 'Product Manager',
+    email: 'jane@example.com',
+  },
+  // Add more employees
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Employee Portal</h1>
+      <div className="employee-list">
+        {employees.map((employee, index) => (
+          <Employee key={index} {...employee} />
+        ))}
+      </div>
     </div>
   );
 }
